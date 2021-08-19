@@ -1,0 +1,13 @@
+@media (max-width: 280px) {
+	#help_page.hero-nav h1 {
+		font-size: 28px;
+	}
+	.hero-nav .tagline {
+		font-size: 14px;
+		line-height: 18px;
+	}
+	.hero-nav .contact a {
+		font-size: 12px;
+		letter-spacing: 0.1em;
+	}
+}

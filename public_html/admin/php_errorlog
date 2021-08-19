@@ -1,0 +1,84 @@
+[17-Feb-2021 23:15:19 UTC] PHP Parse error:  syntax error, unexpected '$totalrow' (T_VARIABLE), expecting ',' or ';' in /home/customer/www/schedule35.com/public_html/admin/printtable.php on line 308
+[17-Feb-2021 19:02:40 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/index.php on line 103
+[17-Feb-2021 19:02:45 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/index.php on line 103
+[17-Feb-2021 19:03:13 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/index.php on line 103
+[17-Feb-2021 19:03:19 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/index.php on line 103
+[17-Feb-2021 19:03:36 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/index.php on line 103
+[17-Feb-2021 19:03:39 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/index.php on line 103
+[17-Feb-2021 19:03:43 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/index.php on line 103
+[05-Mar-2021 00:49:54 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined function getProvinces() in /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php:37
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/admin/reports.php(19): include()
+#1 /home/customer/www/schedule35.com/public_html/admin/index.php(126): include('/home/customer/...')
+#2 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php on line 37
+[05-Mar-2021 00:49:57 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined function getProvinces() in /home/customer/www/schedule35.com/public_html/admin/reports/report-users.php:37
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/admin/reports.php(23): include()
+#1 /home/customer/www/schedule35.com/public_html/admin/index.php(126): include('/home/customer/...')
+#2 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/admin/reports/report-users.php on line 37
+[05-Mar-2021 00:49:58 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined function getProvinces() in /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php:37
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/admin/reports.php(19): include()
+#1 /home/customer/www/schedule35.com/public_html/admin/index.php(126): include('/home/customer/...')
+#2 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php on line 37
+[05-Mar-2021 00:51:15 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php on line 48
+[05-Mar-2021 00:51:17 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/reports/report-users.php on line 40
+[05-Mar-2021 00:51:18 America/Toronto] PHP Fatal error:  require_once(): Failed opening required '_components/stats.php' (include_path='.:/usr/local/php73/pear') in /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php on line 48
+[05-Mar-2021 00:52:43 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined method Analyze::monthlyRevenue() in /home/customer/www/schedule35.com/public_html/admin/components/reports-utils.php:35
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php(375): GetChartJsSingleLineData(Object(Analyze), Array)
+#1 /home/customer/www/schedule35.com/public_html/admin/reports.php(19): include('/home/customer/...')
+#2 /home/customer/www/schedule35.com/public_html/admin/index.php(126): include('/home/customer/...')
+#3 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/admin/components/reports-utils.php on line 35
+[05-Mar-2021 00:52:49 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined method Analyze::monthlySignup() in /home/customer/www/schedule35.com/public_html/admin/components/reports-utils.php:57
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/admin/reports/report-users.php(348): GetSignUpChartJsSingleLineData(Object(Analyze), Array)
+#1 /home/customer/www/schedule35.com/public_html/admin/reports.php(23): include('/home/customer/...')
+#2 /home/customer/www/schedule35.com/public_html/admin/index.php(126): include('/home/customer/...')
+#3 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/admin/components/reports-utils.php on line 57
+[05-Mar-2021 00:52:50 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined method Analyze::monthlyRevenue() in /home/customer/www/schedule35.com/public_html/admin/components/reports-utils.php:35
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/admin/reports/report-revenue.php(375): GetChartJsSingleLineData(Object(Analyze), Array)
+#1 /home/customer/www/schedule35.com/public_html/admin/reports.php(19): include('/home/customer/...')
+#2 /home/customer/www/schedule35.com/public_html/admin/index.php(126): include('/home/customer/...')
+#3 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/admin/components/reports-utils.php on line 35
+[14-Jun-2021 11:52:39 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[14-Jun-2021 11:52:43 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[14-Jun-2021 11:52:50 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[14-Jun-2021 16:02:08 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[14-Jun-2021 16:05:48 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/invoices/edit.php on line 124
+[14-Jun-2021 16:06:58 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/invoices/edit.php on line 124
+[14-Jun-2021 16:17:08 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/printtable.php on line 197
+[14-Jun-2021 17:06:34 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[14-Jun-2021 17:15:03 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[14-Jun-2021 21:58:42 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[15-Jun-2021 12:53:16 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[15-Jun-2021 12:53:18 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[15-Jun-2021 13:59:32 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[15-Jun-2021 14:11:15 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/printtable.php on line 197
+[15-Jun-2021 21:18:45 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[15-Jun-2021 21:19:20 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[16-Jun-2021 16:54:34 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[16-Jun-2021 16:59:22 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/printtable.php on line 197
+[16-Jun-2021 17:15:14 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/printtable.php on line 197
+[16-Jun-2021 19:18:13 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[16-Jun-2021 19:18:37 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[16-Jun-2021 19:18:39 America/Toronto] PHP Deprecated:  Function money_format() is deprecated in /home/customer/www/schedule35.com/public_html/admin/dashboard.php on line 49
+[16-Jun-2021 19:36:14 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[16-Jun-2021 19:36:50 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[16-Jun-2021 20:21:13 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[16-Jun-2021 20:21:27 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[24-Jun-2021 12:55:07 America/Toronto] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Users::getAllAmbassadors(), 0 passed in /home/customer/www/schedule35.com/public_html/admin/ambassadors/default.php on line 13 and exactly 2 expected in /home/customer/www/schedule35.com/public_html/lib/class_user.php:456
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/admin/ambassadors/default.php(13): Users->getAllAmbassadors()
+#1 /home/customer/www/schedule35.com/public_html/admin/ambassadors.php(31): include('/home/customer/...')
+#2 /home/customer/www/schedule35.com/public_html/admin/index.php(126): include('/home/customer/...')
+#3 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/lib/class_user.php on line 456
+[29-Jun-2021 17:34:42 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095

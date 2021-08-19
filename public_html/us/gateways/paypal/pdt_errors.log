@@ -1,0 +1,8 @@
+[02-Mar-2021 16:27:20 America/Toronto] PHP Notice:  Trying to get property 'invid' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 248
+[02-Mar-2021 16:27:20 America/Toronto] PHP Notice:  Trying to get property 'totalprice' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 249
+[02-Mar-2021 16:27:20 America/Toronto] PHP Notice:  Trying to get property 'invid' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 253
+[02-Mar-2021 16:27:20 America/Toronto] PHP Notice:  Trying to get property 'totalprice' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 253
+[03-Mar-2021 16:10:31 America/Toronto] PHP Notice:  Trying to get property 'invid' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 248
+[03-Mar-2021 16:10:31 America/Toronto] PHP Notice:  Trying to get property 'totalprice' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 249
+[03-Mar-2021 16:10:31 America/Toronto] PHP Notice:  Trying to get property 'invid' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 253
+[03-Mar-2021 16:10:31 America/Toronto] PHP Notice:  Trying to get property 'totalprice' of non-object in /home/customer/www/schedule35.com/public_html/themes/schedule35/receipt.tpl.php on line 253

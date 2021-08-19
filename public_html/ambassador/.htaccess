@@ -1,0 +1,19 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+# Remove php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ErrorDocument 404 /ambassador/404.php
+ErrorDocument 403 /ambassador/404.php
+ErrorDocument 401 /ambassador/404.php
+
+
+<IfModule mod_headers.c>
+	Header set X-UA-Compatible "IE=edge,chrome=1"
+	# mod_headers can't match by content-type, but we don't want to send this header on *everything*...
+	<FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svg|svgz|ttf|vcf|webm|webp|woff|xml|xpi)$">
+		Header unset X-UA-Compatible
+	</FilesMatch>
+</IfModule>

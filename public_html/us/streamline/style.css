@@ -1,0 +1,259 @@
+@font-face {
+  font-family: 'streamline';
+  src:  url('fonts/streamline.eot?8vdk9j');
+  src:  url('fonts/streamline.eot?8vdk9j#iefix') format('embedded-opentype'),
+    url('fonts/streamline.woff2?8vdk9j') format('woff2'),
+    url('fonts/streamline.ttf?8vdk9j') format('truetype'),
+    url('fonts/streamline.woff?8vdk9j') format('woff'),
+    url('fonts/streamline.svg?8vdk9j#streamline') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'streamline' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-facebook:before {
+  content: "\e916";
+}
+.ico-instagram:before {
+  content: "\e917";
+}
+.ico-paypal:before {
+  content: "\e91c";
+}
+.ico-snapchat:before {
+  content: "\e91d";
+}
+.ico-twitter:before {
+  content: "\e918";
+}
+.ico-youtube:before {
+  content: "\e919";
+}
+.ico-atomic-bomb:before {
+  content: "\e900";
+}
+.ico-binoculars:before {
+  content: "\e901";
+}
+.ico-link:before {
+  content: "\e902";
+}
+.ico-search:before {
+  content: "\e926";
+}
+.ico-skull-1:before {
+  content: "\e921";
+}
+.ico-skull-2:before {
+  content: "\e922";
+}
+.ico-check-1:before {
+  content: "\e908";
+}
+.ico-alarm-clock:before {
+  content: "\e905";
+}
+.ico-email-send:before {
+  content: "\e912";
+}
+.ico-email:before {
+  content: "\e91a";
+}
+.ico-envelope-2:before {
+  content: "\e91e";
+}
+.ico-mouse:before {
+  content: "\e906";
+}
+.ico-crown:before {
+  content: "\e927";
+}
+.ico-hot-topic-box:before {
+  content: "\e923";
+}
+.ico-hot-topic-circle:before {
+  content: "\e924";
+}
+.ico-hot-topic:before {
+  content: "\e925";
+}
+.ico-trophy:before {
+  content: "\e928";
+}
+.ico-loading:before {
+  content: "\e91f";
+}
+.ico-radioactive:before {
+  content: "\e907";
+}
+.ico-synchronize:before {
+  content: "\e920";
+}
+.ico-add:before {
+  content: "\e913";
+}
+.ico-add-circle:before {
+  content: "\e91b";
+}
+.ico-remove-1:before {
+  content: "\e903";
+}
+.ico-remove-circle:before {
+  content: "\e90b";
+}
+.ico-movie-clapboard:before {
+  content: "\e92d";
+}
+.ico-video-camera-2:before {
+  content: "\e92f";
+}
+.ico-music-note-1:before {
+  content: "\e930";
+}
+.ico-play-button:before {
+  content: "\e931";
+}
+.ico-coupon-discount:before {
+  content: "\e915";
+}
+.ico-new-sticker-circle:before {
+  content: "\e90c";
+}
+.ico-new-sticker-square:before {
+  content: "\e90d";
+}
+.ico-shopping-cart:before {
+  content: "\e909";
+}
+.ico-truck-delivery-time:before {
+  content: "\e90a";
+}
+.ico-astronaut:before {
+  content: "\e929";
+}
+.ico-planet-ring:before {
+  content: "\e92a";
+}
+.ico-rocket:before {
+  content: "\e92b";
+}
+.ico-space-shuttle:before {
+  content: "\e92c";
+}
+.ico-diamond:before {
+  content: "\e92e";
+}
+.ico-arrow-down:before {
+  content: "\e904";
+}
+.ico-arrow-left-2:before {
+  content: "\e90e";
+}
+.ico-arrow-left:before {
+  content: "\e90f";
+}
+.ico-arrow-right-2:before {
+  content: "\e914";
+}
+.ico-arrow-right:before {
+  content: "\e910";
+}
+.ico-arrow-up:before {
+  content: "\e911";
+}
+.ico-plus:before {
+  content: "\f067";
+}
+.ico-minus:before {
+  content: "\f068";
+}
+.ico-check:before {
+  content: "\f00c";
+}
+.ico-close:before {
+  content: "\f00d";
+}
+.ico-remove:before {
+  content: "\f00d";
+}
+.ico-times:before {
+  content: "\f00d";
+}
+.ico-play-circle-o:before {
+  content: "\f01d";
+}
+.ico-plus-circle:before {
+  content: "\f055";
+}
+.ico-minus-circle:before {
+  content: "\f056";
+}
+.ico-times-circle:before {
+  content: "\f057";
+}
+.ico-heart-o:before {
+  content: "\f08a";
+}
+.ico-envelope:before {
+  content: "\f0e0";
+}
+.ico-comment-o:before {
+  content: "\f0e5";
+}
+.ico-quote-left:before {
+  content: "\f10d";
+}
+.ico-quote-right:before {
+  content: "\f10e";
+}
+.ico-circle-o-notch:before {
+  content: "\f1ce";
+}
+.ico-cc-visa:before {
+  content: "\f1f0";
+}
+.ico-cc-mastercard:before {
+  content: "\f1f1";
+}
+.ico-cc-discover:before {
+  content: "\f1f2";
+}
+.ico-cc-amex:before {
+  content: "\f1f3";
+}
+.ico-cc-paypal:before {
+  content: "\f1f4";
+}
+.ico-cc-stripe:before {
+  content: "\f1f5";
+}
+.ico-safari:before {
+  content: "\f267";
+}
+.ico-chrome:before {
+  content: "\f268";
+}
+.ico-firefox:before {
+  content: "\f269";
+}
+.ico-opera:before {
+  content: "\f26a";
+}
+.ico-internet-explorer:before {
+  content: "\f26b";
+}
