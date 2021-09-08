@@ -1990,7 +1990,35 @@ class Content
 	 */
 	public function getProvinces()
 	{
-		$sql = "SELECT * FROM provinces";
+		$sql = "SELECT * FROM provinces WHERE active=1";
+		$row = self::$db->fetch_all($sql);
+
+		return ($row) ? $row : 0;
+	}
+	
+	
+	/**
+	 * Content::getStates()
+	 *
+	 * @return
+	 */
+	public function getStates()
+	{
+		$sql = "SELECT * FROM states WHERE active=1";
+		$row = self::$db->fetch_all($sql);
+
+		return ($row) ? $row : 0;
+	}
+	
+	
+	/**
+	 * Content::getStatesAll()
+	 *
+	 * @return
+	 */
+	public function getStatesAll()
+	{
+		$sql = "SELECT * FROM states";
 		$row = self::$db->fetch_all($sql);
 
 		return ($row) ? $row : 0;

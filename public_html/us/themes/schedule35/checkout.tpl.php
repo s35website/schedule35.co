@@ -196,9 +196,9 @@
 										
 										<label for="shipping_state">State</label>
 										<select id="shipping_state" name="state" data-validetta="required">
-											<option value="" disabled selected></option>
+											<option value="" disabled selected>State</option>
 											
-											<?php $provRow = $content->getProvinces(); ?>
+											<?php $provRow = $content->getStates(); ?>
 											<?php foreach ($provRow as $prrow): ?>
 											<option value="<?php echo($prrow->abbr); ?>" data-cost="<?php echo($prrow->shipping_cost); ?>" <?php echo $shipping_state == $prrow->abbr ? 'selected' : ''?>><?php echo($prrow->name); ?></option>
 											<?php endforeach; ?>

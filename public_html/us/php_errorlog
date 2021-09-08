@@ -966,3 +966,23 @@
 [13-Jul-2021 13:07:19 America/Toronto] PHP Notice:  Trying to get property 'username' of non-object in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/components/navbar.tpl.php on line 148
 [13-Jul-2021 13:07:19 America/Toronto] PHP Notice:  Trying to get property 'newsletter' of non-object in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/components/modal-mailinglist.tpl.php on line 1
 [03-Aug-2021 15:15:44 America/Toronto] PHP Notice:  Trying to get property 'shipping_cost' of non-object in /home/customer/www/schedule35.com/public_html/us/lib/class_content.php on line 2285
+[30-Aug-2021 13:06:23 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined method Content::getProvincesAll() in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php:418
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/us/payment.php(68): require_once()
+#1 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php on line 418
+[30-Aug-2021 13:06:33 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined method Content::getProvincesAll() in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php:418
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/us/payment.php(68): require_once()
+#1 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php on line 418
+[30-Aug-2021 13:06:52 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined method Content::getProvincesAll() in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php:418
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/us/payment.php(68): require_once()
+#1 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php on line 418
+[30-Aug-2021 13:07:36 America/Toronto] PHP Fatal error:  Uncaught Error: Call to undefined method Content::getProvincesAll() in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php:418
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/us/payment.php(68): require_once()
+#1 {main}
+  thrown in /home/customer/www/schedule35.com/public_html/us/themes/schedule35/payment.tpl.php on line 418

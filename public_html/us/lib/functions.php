@@ -312,6 +312,19 @@ function session($var)
     return $provinces;
   }
   
+  
+  function getStates()
+  {
+    $sql = "SELECT abbr, name FROM states WHERE active=1";
+    $rows = Registry::get("Database")->fetch_all($sql);
+    $provinces = array();
+    foreach ($rows as $row)
+    {
+      $provinces[$row->abbr] = $row->name;
+    }
+    return $provinces;
+  }
+  
   /**
    * tooltip()
    * 

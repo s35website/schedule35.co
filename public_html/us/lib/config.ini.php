@@ -16,9 +16,10 @@
         * the database configuration settings.
         */
         define('DB_SERVER', 'localhost');
-        define('DB_USER', 'utnjavuq5rc9b');
-        define('DB_PASS', 'COMMONpass88!');
+        define('DB_USER', 'u97xqgygz8atv');
+        define('DB_PASS', 'LuxMasters123!');
         define('DB_DATABASE', 'dbyurqxpfgab8v');
+
 
         /**
         * Show MySql Errors.

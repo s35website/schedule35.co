@@ -415,7 +415,7 @@
 															<select id="billing_state" name="billing_state" data-validetta="required">
 																<option value="" disabled selected>State</option>
 																
-																<?php $provRow = $content->getProvinces(); ?>
+																<?php $provRow = $content->getStatesAll(); ?>
 																<?php foreach ($provRow as $prrow): ?>
 																<option value="<?php echo($prrow->abbr); ?>"><?php echo($prrow->abbr); ?></option>
 																<?php endforeach; ?>
