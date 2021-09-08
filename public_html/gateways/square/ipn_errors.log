@@ -1,0 +1,5 @@
+[31-Aug-2021 09:20:38 America/Toronto] PHP Notice:  Undefined index: nonce in /home2/schedule35/public_html/gateways/square/ipn.php on line 32
+[01-Sep-2021 05:37:31 America/Toronto] PHP Fatal error:  Uncaught Error: Call to a member function __toArray() on string in /home2/schedule35/public_html/gateways/square/ipn.php:98
+Stack trace:
+#0 {main}
+  thrown in /home2/schedule35/public_html/gateways/square/ipn.php on line 98
