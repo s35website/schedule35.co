@@ -30,8 +30,12 @@
 			</ul>
 
 			<div class="container max-width">
-
-
+				<?php
+					if(isset($_SESSION['square_error']) && $_SESSION['square_error']!=''){
+						echo $_SESSION['square_error'];
+						unset($_SESSION['square_error']);
+					}
+				?>
 				<div class="row">
 					<div class="col-sm-12 col-md-4 order-md-1 mobile-hide">
 						<div class="cart-wrapper receipt t30">
@@ -120,11 +124,8 @@
 
 					<div class="col-sm-12 col-md-8 order-md-0">
 						<div class="cart-wrapper">
-
 							<h2 class="t0 title p42">Payment Options</h2>
-
 							<div class="row payment-options">
-
 								<div class="col-payment col-sm-6 p30">
 									<a class="payment-option active" data-payment="stripepayment" id="stripepayment-opt">
 										<div class="card-options">
@@ -271,86 +272,242 @@
 									</button>
 
 								</form>
-							</div>-->
+							</div>-->						
+
+							<div class="creditcard-checkout-form" style="margin-top: 24px;">
+
+										<!-- Square Payment Start-->
+							<?php
+								$key = $db->first("SELECT * FROM gateways WHERE name = 'square'");
+								$kar = explode('/',$key->extra);
+								$appId = $kar[0];
+								$locId = $kar[1];
+								if($key->demo == 0){
+						            $paymentGatewayUrl = 'https://js.squareupsandbox.com/v2/paymentform';
+						        }else{
+						             $paymentGatewayUrl = 'https://js.squareup.com/v2/paymentform';
+						        }  
+							?>	
+
+							<script type="text/javascript" src="<?php echo $paymentGatewayUrl; ?>"></script>
+							<script type="text/javascript">
+								// Set the application ID
+								var applicationId = "<?php echo $appId; ?>";
+
+								// Set the location ID
+								var locationId = "<?php echo $locId; ?>";
 
 
-							<!-- Stripe -->
-							<div class="payment-info stripepayment active">
+								function buildForm(form) {
+								  if (SqPaymentForm.isSupportedBrowser()) {
+								    form.build();
+								    form.recalculateSize();
+								  }
+								}
+								function buildForm1() {
+								    if (SqPaymentForm.isSupportedBrowser()) {
+								      var paymentDiv = document.getElementById("form-container");
+								      if (paymentDiv.style.display === "none") {
+								          paymentDiv.style.display = "block";
+								      }
+								      paymentform.build();
+								      paymentform.recalculateSize();
+								    } else {
+								      // Show a "Browser is not supported" message to your buyer
+								    }
+								  }
+								/*
+								 * function: requestCardNonce
+								 *
+								 * requestCardNonce is triggered when the "Pay with credit card" button is
+								 * clicked
+								 *
+								 * Modifying this function is not required, but can be customized if you
+								 * wish to take additional action when the form button is clicked.
+								 */
+								function requestCardNonce(event) {
 
-								<h5 class="p18 t18 bold-text">Credit / Debit Card</h5>
+								  // Don't submit the form until SqPaymentForm returns with a nonce
+								  event.preventDefault();
 
-								<form method="post" id="stripe_form" class="stripepayment" action="gateways/stripe/ipn.php">
+								  // Request a nonce from the SqPaymentForm object
+								  paymentForm.requestCardNonce();
+								}
 
-									<div class="creditcard-checkout-form" style="margin-top: 24px;">
+								// Create and initialize a payment form object
+								var paymentForm = new SqPaymentForm({
 
-										<div class="form-group">
-											<div class="row">
-												<div class="col-sm-12">
-													<div id="cc_wrapper">
-														<span class="cc_icon"></span>
-														<span class="cc_valid"></span>
-														<input id="cc_number" type="text" name="card-number" value="<?php echo isset($_POST['card-number']) ? $_POST['card-number'] : '' ?>" placeholder="Card Number">
-													</div>
-												</div>
-											</div>
-										</div>
+								  // Initialize the payment form elements
+								  applicationId: applicationId,
+								  locationId: locationId,
+								  inputClass: 'sq-input',
+								  autoBuild: false,
+								  postalCode: false,
 
-										<div class="form-group">
-											<div class="row">
-												<div class="col-6 col-md-4">
-													<select id="card-expiry-month" name="card-expiry-month">
-														<option disabled selected value="">Month</option>
-														<option value="01">01</option>
-														<option value="02">02</option>
-														<option value="03">03</option>
-														<option value="04">04</option>
-														<option value="05">05</option>
-														<option value="06">06</option>
-														<option value="07">07</option>
-														<option value="08">08</option>
-														<option value="09">09</option>
-														<option value="10">10</option>
-														<option value="11">11</option>
-														<option value="12">12</option>
-													</select>
-												</div>
-												<div class="col-6 col-md-4">
-													<select id="card-expiry-year" name="card-expiry-year">
-														<option value="" selected="" disabled="">Year</option>
-														<option value="<?php echo date("Y"); ?>"><?php echo date("Y"); ?></option>
-														<option value="<?php echo date('Y', strtotime('+1 year')); ?>"><?php echo date('Y', strtotime('+1 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+2 year')); ?>"><?php echo date('Y', strtotime('+2 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+3 year')); ?>"><?php echo date('Y', strtotime('+3 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+4 year')); ?>"><?php echo date('Y', strtotime('+4 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+5 year')); ?>"><?php echo date('Y', strtotime('+5 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+6 year')); ?>"><?php echo date('Y', strtotime('+6 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+7 year')); ?>"><?php echo date('Y', strtotime('+7 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+8 year')); ?>"><?php echo date('Y', strtotime('+8 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+9 year')); ?>"><?php echo date('Y', strtotime('+9 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+10 year')); ?>"><?php echo date('Y', strtotime('+10 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+11 year')); ?>"><?php echo date('Y', strtotime('+11 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+12 year')); ?>"><?php echo date('Y', strtotime('+12 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+13 year')); ?>"><?php echo date('Y', strtotime('+13 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+14 year')); ?>"><?php echo date('Y', strtotime('+14 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+15 year')); ?>"><?php echo date('Y', strtotime('+15 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+16 year')); ?>"><?php echo date('Y', strtotime('+16 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+17 year')); ?>"><?php echo date('Y', strtotime('+17 year')); ?></option>
-														<option value="<?php echo date('Y', strtotime('+18 year')); ?>"><?php echo date('Y', strtotime('+18 year')); ?></option>
-													</select>
-												</div>
+								  // Customize the CSS for SqPaymentForm iframe elements
+								  inputStyles: [{
+								    fontSize: '16px',
+								    fontFamily: 'Helvetica Neue',
+								    padding: '16px',
+								    color: '#373F4A',
+								    backgroundColor: 'transparent',
+								    lineHeight: '18px',
+								    placeholderColor: '#CCC',
+								    _webkitFontSmoothing: 'antialiased',
+								    _mozOsxFontSmoothing: 'grayscale'
+								  }],
 
-												<div class="col-sm-12 col-md-4">
-													<input id="card-cvc" type="text" name="card-cvc" autocomplete="off" autocorrect="off"autocapitalize="off" spellcheck="false" placeholder="CVC">
-													<div class="field-icons" style="display:none">
-														<span class="field-icon-tooltip -info">?</span>
-													</div>
-													<div class="tooltip _info _hidden" style="display:none;">
-														A number on the back of your card with 3 digits, or the front of your card with 4 digits.
-													</div>
-												</div>
-											</div>
-										</div>
+								  // Initialize Apple Pay placeholder ID
+								  applePay: false,
 
+								  // Initialize Masterpass placeholder ID
+								  masterpass: false,
+
+								  // Initialize the credit card placeholders
+								  cardNumber: {
+								    elementId: 'sq-card-number',
+								    placeholder: 'Card Number'
+								  },
+								  cvv: {
+								    elementId: 'sq-cvv',
+								    placeholder: 'CVV'
+								  },
+								  expirationDate: {
+								    elementId: 'sq-expiration-date',
+								    placeholder: 'MM/YY'
+								  },
+								  // SqPaymentForm callback functions
+								  callbacks: {
+								    /*
+								     * callback function: createPaymentRequest
+								     * Triggered when: a digital wallet payment button is clicked.
+								     * Replace the JSON object declaration with a function that creates
+								     * a JSON object with Digital Wallet payment details
+								     */
+								    createPaymentRequest: function () {
+
+								      return {
+								        requestShippingAddress: false,
+								        requestBillingInfo: true,
+								        currencyCode: "<?php echo $key->extra2; ?>",
+								        countryCode: "US",
+								        total: {
+								          label: "MERCHANT NAME",
+								          amount: "<?php echo $cart->totalprice;?>",
+								          pending: false
+								        },
+								        lineItems: [
+								          {
+								            label: "Subtotal",
+								            amount: "<?php echo $cart->totalprice;?>",
+								            pending: false
+								          }
+								        ]
+								      }
+								    },
+
+								    /*
+								     * callback function: cardNonceResponseReceived
+								     * Triggered when: SqPaymentForm completes a card nonce request
+								     */
+								    cardNonceResponseReceived: function (errors, nonce, cardData) {
+								      if (errors) {
+								        // Log errors from nonce generation to the Javascript console
+								        console.log("Encountered errors:");
+								        errors.forEach(function (error) {
+								          console.log(' er= ' + error.message);
+								          alert(error.message);
+								        });
+
+								        return;
+								      }
+								      // Assign the nonce value to the hidden form field
+								      document.getElementById('card-nonce').value = nonce;
+
+								      // POST the nonce form to the payment processing page
+								       document.getElementById('nonce-form').submit();
+
+								    },
+
+								    /*
+								     * callback function: unsupportedBrowserDetected
+								     * Triggered when: the page loads and an unsupported browser is detected
+								     */
+								    unsupportedBrowserDetected: function () {
+								      /* PROVIDE FEEDBACK TO SITE VISITORS */
+								    },
+
+								    /*
+								     * callback function: inputEventReceived
+								     * Triggered when: visitors interact with SqPaymentForm iframe elements.
+								     */
+								    inputEventReceived: function (inputEvent) {
+								      switch (inputEvent.eventType) {
+								        case 'focusClassAdded':
+								          /* HANDLE AS DESIRED */
+								          break;
+								        case 'focusClassRemoved':
+								          /* HANDLE AS DESIRED */
+								          break;
+								        case 'errorClassAdded':
+								          document.getElementById("error").innerHTML = "Please fix card information errors before continuing.";
+								          break;
+								        case 'errorClassRemoved':
+								          /* HANDLE AS DESIRED */
+								          document.getElementById("error").style.display = "none";
+								          break;
+								        case 'cardBrandChanged':
+								          /* HANDLE AS DESIRED */
+								          break;
+								        case 'postalCodeChanged':
+								          /* HANDLE AS DESIRED */
+								          break;
+								      }
+								    },
+
+								    /*
+								     * callback function: paymentFormLoaded
+								     * Triggered when: SqPaymentForm is fully loaded
+								     */
+								    paymentFormLoaded: function () {
+								      /* HANDLE AS DESIRED */
+								      console.log("The form loaded!");
+								    }
+								  }
+								});
+							</script>
+							<script>
+								 document.addEventListener("DOMContentLoaded", function(event) {
+							    if (SqPaymentForm.isSupportedBrowser()) {
+							      paymentForm.build();
+							      paymentForm.recalculateSize();
+							    }
+							  });
+							</script>
+							<div id="form-container">
+							  <div id="sq-ccbox">
+							    <form id="nonce-form" novalidate action="gateways/square/ipn.php" method="post">
+							    	<div class="form-group">
+													
+							      <fieldset>
+							      	<div class="row">
+							      	<div class="col-sm-12">
+							       		<div id="sq-card-number"></div>
+							       	</div>
+
+							       	<div class="row">
+								        <div class="third col-6 col-md-4">
+								          <div id="sq-expiration-date"></div>
+								        </div>
+
+								        <div class="third col-6 col-md-4">
+								          <div id="sq-cvv"></div>
+								        </div>
+									</div>
+							      </fieldset>
+<!-- 
+							      <button id="sq-creditcard" class="button-credit-card" onclick="requestCardNonce(event)">Finish and Pay</button>
+										 -->
 										<div class="form-group">
 											<div class="row">
 												<div class="col-sm-12">
@@ -388,7 +545,11 @@
 											<!-- Enter billing address -->
 											<div id="billing_info" style="padding: 24px 20px 6px; background: #f4f4f4;border-top: 1px solid #dfdfdf; display: none;">
 												<div class="form-group">
-													
+													<div class="row">
+														<div class="col-sm-12">
+															<input id="billing_email" type="text" name="billing_email" placeholder="Email">
+														</div>
+													</div>
 													<div class="row">
 														<div class="col-sm-7">
 															<input id="billing_address" type="text" name="billing_address" placeholder="Address">
@@ -423,12 +584,8 @@
 														</div>
 														<div class="col-12 col-md-4">
 															<input id="billing_zip" type="text" name="billing_zip" placeholder="Postal code" data-validetta="required,minLength[2]"/>
-														</div>
-														
-														
+														</div>							
 													</div>
-													
-													
 												</div>
 											</div>
 											<!-- / Enter billing address -->
@@ -445,7 +602,6 @@
 									<input type="hidden" name="user_id" value="<?php echo $user->uid;?>" />
 									<input type="hidden" name="item_name" value="<?php echo $itemDetails;?>" />
 									<input type="hidden" name="currency_code" value="CAD" />
-									<input type="hidden" name="processStripePayment" value="1" />
 									<input type="hidden" name="discount_code" value="<?php echo($cart->discount_code); ?>" />
 									
 									
@@ -487,25 +643,12 @@
 									</div>
 									
 
-									<button class="btn-quantum btn-loader btn med btn primary t30 p18" type="submit">
-										<span>Finish and Pay</span>
-										<div class="circle-loader"></div>
-									</button>
-
-									<?php if(isset($_SESSION['stripe_error'])):?>
-									<div class="error-box">
-										<ul class="error list">
-											<li>
-												<?php echo($_SESSION['stripe_error']); ?>
-											</li>
-										</ul>
-									</div>
-									<?php endif;?>
-
+									 <button id="sq-creditcard" class="button-credit-card" onclick="requestCardNonce(event)">Finish and Pay</button>
+									 <div id="error"></div>
+								  <input type="hidden" id="amount" name="amount" value="<?php echo number_format($cart->totalprice, 2);?>">
+							      <input type="hidden" id="card-nonce" name="nonce">
 								</form>
-
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -569,14 +712,8 @@
 			$( "#pointspayment-opt" ).trigger( "click" );
 			$(".receipt-summary").hide();
 			$("#points-display").show();
+			$(".creditcard-checkout-form").hide();			
 			<?php endif;?>
-			
-			<?php if(isset($_SESSION['stripe_error'])):?>
-			$( "#stripepayment-opt" ).trigger( "click" );
-			$(".receipt-summary").hide();
-			$("#normalpay-display").show();
-			<?php endif;?>
-			
 		});
 		
 		
@@ -624,11 +761,12 @@
 				if (paymentType == "pointspayment") {
 					$(".receipt-summary").hide();
 					$("#points-display").show();
-					
+					$(".creditcard-checkout-form").hide();
 				}
 				else {
 					$(".receipt-summary").hide();
 					$("#normalpay-display").show();
+					$(".creditcard-checkout-form").show();
 				}
 			});
 		});

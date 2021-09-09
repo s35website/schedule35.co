@@ -14,7 +14,7 @@
     if (!$user->logged_in) redirect_to("../../index.php");  
     
     if(isset($_POST['nonce']) && $_POST['amount']){
-        $user_id = $user->uid;
+       $user_id = $user->uid;
         $username = $user->username;
         $usr = Core::getRowById(Users::uTable, $user_id);
         $totalrow = Content::getCart($username);
@@ -26,6 +26,8 @@
             $bill_city = sanitize($_POST['billing_city']);
             $bill_state = sanitize($_POST['billing_state']);
             $bill_zip = sanitize($_POST['billing_zip']);
+            $buyer_email_address = sanitize($_POST['billing_email']);
+
         }else {
             $bill_country = $totalrow->country;
             $bill_address = $totalrow->address;
@@ -33,9 +35,10 @@
             $bill_city = $totalrow->city;
             $bill_state = $totalrow->state;
             $bill_zip = $totalrow->zip;
+            $buyer_email_address = $user->username;;
         }
 
-        $cartrow = $content->getCartContent($username);    
+       $cartrow = $content->getCartContent($username);    
         if (!$cartrow) {
             redirect_to("cart");
         }
@@ -55,14 +58,24 @@
             header('Location: ../../payment');
             exit();
         }
-        
+
+
         /**** Square payment start ****/
+        
+        $ship_address = $totalrow->address2;
+        $ship_address2 = $totalrow->address2;
+        $ship_city = $totalrow->city;
+        $ship_country = $totalrow->country;
+
 
         $first_name = '';
         $last_name = '';
         $name = explode(" ",$_POST['card-name']);
         $first_name = $name[0];
         $last_name = $name[1];
+
+        $shipping_first_name = 'test';
+        $shipping_last_name = 'test';
         
         $nonce = $_POST['nonce'];
         $amount = $_POST['amount']*100;        
@@ -76,10 +89,14 @@
         $locId = $kar[1];
 
          if($key->demo == 0){
-            $paymentGatewayUrl = 'https://connect.squareupsandbox.com/v2/locations/'.$locId.'/transactions';
+            $paymentGatewayUrl = 'https://connect.squareupsandbox.com/v2/payments';
         }else{
-             $paymentGatewayUrl = 'https://connect.squareup.com/v2/locations/'.$locId.'/transactions';
+             $paymentGatewayUrl = 'https://connect.squareup.com/v2/payments';
         }        
+
+        /*
+          {\n    \"amount_money\": {\n      \"currency\": \"$currency\",\n      \"amount\": $amount\n    },\n    \"idempotency_key\": \"$idempotency_key\",\n    \"billing_address\": {\n      \"address_line_1\": \"$bill_address\",\n      \"address_line_2\": \"$bill_address2\",\n      \"country\": \"$bill_country\",\n      \"administrative_district_level_1\": \"$bill_city\",\n      \"administrative_district_level_2\": \"$bill_state\",\n      \"postal_code\": \"$bill_zip\",\n      \"first_name\": \"$first_name\",\n      \"last_name\": \"$last_name\"\n    },\n     \"shipping_address\": {\n      \"address_line_1\": \"$ship_address\",\n      \"address_line_2\": \"$ship_address2\",\n      \"administrative_district_level_1\": \"$ship_city\",\n      \"country\": \"$ship_country\",\n      \"first_name\": \"$shipping_first_name\",\n      \"last_name\": \"$shipping_last_name\"\n      \"postal_code\": \"$ship_zip\" },\n    \"source_id\": \"$nonce\"\n,\n    \"buyer_email_address\": \"$buyer_email_address\",\n    \"location_id\": \"$locId\"\n  }
+          */
         $curl = curl_init();
         curl_setopt_array($curl, array(
           CURLOPT_URL => $paymentGatewayUrl,
@@ -89,7 +106,9 @@
           CURLOPT_TIMEOUT => 30,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS =>"{\n    \"amount_money\": {\n      \"currency\": \"$currency\",\n      \"amount\": $amount\n    },\n    \"idempotency_key\": \"$idempotency_key\",\n    \"billing_address\": {\n      \"address_line_1\": \"$bill_address\",\n      \"address_line_2\": \"$bill_address2\",\n      \"country\": \"$bill_country\",\n      \"administrative_district_level_1\": \"$bill_city\",\n      \"administrative_district_level_2\": \"$bill_state\",\n      \"postal_code\": \"$bill_zip\",\n      \"first_name\": \"$first_name\",\n      \"last_name\": \"$last_name\"\n    },\n    \"card_nonce\": \"$nonce\"\n  }",
+          CURLOPT_POSTFIELDS =>"
+            {\n    \"amount_money\": {\n      \"amount\": $amount,\n      \"currency\": \"$currency\"\n    },\n    \"idempotency_key\": \"$idempotency_key\",\n    \"source_id\": \"$nonce\",\n    \"billing_address\": {\n      \"address_line_1\": \"$bill_address\",\n      \"administrative_district_level_1\": \"$bill_address2\",\n      \"country\": \"$bill_country\",\n      \"first_name\": \"$first_name\",\n      \"last_name\": \"$last_name\",\n      \"postal_code\": \"$bill_zip\" },\n     \"shipping_address\": {\n      \"address_line_1\": \"$ship_address\",\n      \"address_line_2\": \"$ship_address2\",\n      \"administrative_district_level_1\": \"$ship_city\",\n      \"country\": \"$ship_country\",\n      \"first_name\": \"$shipping_first_name\",\n      \"last_name\": \"$shipping_last_name\",\n      \"postal_code\": \"$ship_zip\"    },\n    \"buyer_email_address\": \"$buyer_email_address\",\n    \"location_id\": \"$locId\"\n  }
+          ",
           CURLOPT_HTTPHEADER => array(
             "authorization: Bearer $bearer",
             "cache-control: no-cache",
@@ -100,29 +119,28 @@
 
         $response = curl_exec($curl);
         $err = curl_error($curl);
-        curl_close($curl);        
+        $json = json_decode($response);  
 
-        if ($err) {
-          $_SESSION['square_error'] = $err;
+       if ($json->errors[0]->detail!='') {
+          $_SESSION['square_error'] = $json->errors[0]->detail;
 		  header("location:../../payment");
-        } else { 
-
-           $json = json_decode($response); 
-           $location_id = $json->transaction->location_id;
-           $transaction_id = $json->transaction->id;
-           $created_at = $json->transaction->created_at;
-           $tenders = $json->transaction->tenders[0];
+        } else {            
+           $location_id = $json->payment->location_id;
+           $transaction_id = $json->payment->id;
+           $created_at = $json->payment->created_at;
+           $tenders = $json->payment;
            $res_amount = $tenders->amount_money->amount;
            $currency = $tenders->amount_money->currency;
-           $type = $tenders->amount_money->type;
            $card_details = $tenders->card_details;
            $status = $card_details->status;
            $card = $card_details->card;
            $card_brand = $card->card_brand;
            $last_4 = $card->last_4;
+           $type = $card->card_type;
            $fingerprint = $card->fingerprint;
            $entry_method = $card_details->entry_method;
-           $product = $json->transaction->product;
+           $product = $json->payment->product;
+
 
            /**** Square payment end ****/
             $mc_gross = round(($res_amount / 100) , 2); 
@@ -149,8 +167,6 @@
             }
 
             if ($status=='CAPTURED' && $v1 <= $v2) {
-
-
                 if ($cartrow) {
                     $items = 0;
                     $items_purchased = "";
