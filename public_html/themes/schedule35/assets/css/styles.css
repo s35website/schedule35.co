@@ -9578,6 +9578,25 @@ table.table-dosage .gummy-icon {
 	margin-top: 48px;
 }
 
+#nonce-form iframe {
+    border: 1px solid #CFCFCF;;
+    height: 48px;
+    border-radius:5px;
+}
+#nonce-form iframe:placeholder {
+    color:#ccc;
+}
+#nonce-form button{
+    background-color: #e45c49 !important;
+    border-color: #ccc !important;
+    color: #fff !important;
+    cursor: default !important;
+    font-size: 19px;
+    padding: 18px 50px;
+    border-radius: 40px;
+    border:none;
+    cursor: pointer!important;
+}
 
 @media (max-width: 767px) {
 	.article h1 {
