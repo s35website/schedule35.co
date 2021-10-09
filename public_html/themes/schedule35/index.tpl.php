@@ -149,7 +149,7 @@
 					<div class="hero-text text-white center text-center" style="top: 48%;">
 						<h1 class="t0">Superdocious</h1>
 						<p>
-							Experience the next level of freedom.
+							Experience the next level of freedom with 500mg's of shrooms.
 						</p>
 						
 						<a href="<?php echo SITEURL;?>/item?itemname=superdose-500mg" class="btn white med primary t30">Purchase Now</a>

@@ -58,7 +58,7 @@
 
 						<div class="product">
 							<a class="item-image" href="<?php echo $url;?>">
-								<img src="<?php echo UPLOADURL;?>prod_images/<?php echo ($lrow->thumb) ? $lrow->thumb : "blank.png?v=1";?>?v=2" alt="<?php echo $lrow->title;?>" />
+								<img src="<?php echo UPLOADURL;?>prod_images/<?php echo ($lrow->thumb) ? $lrow->thumb : "blank.png?v=1";?>?v=3" alt="<?php echo $lrow->title;?>" />
 								<div class="item-hover">
 									<button class="btn black add-to-cart">Add to Cart</button>
 								</div>

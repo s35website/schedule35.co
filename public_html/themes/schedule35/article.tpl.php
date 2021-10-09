@@ -8,7 +8,7 @@
 <?php $commentrow = $content->getComments($row->id);?>
 <?php require('components/head.tpl.php'); ?>
 
-<body class="<?php echo (($notification == 1) ? 'has-notification' : ''); ?>">
+<body class="fixed-header <?php echo (($notification == 1) ? 'has-notification' : ''); ?>">
 
 	<?php require('components/navbar.tpl.php'); ?>
 	
@@ -31,7 +31,7 @@
 				<em>Post is in preview mode. Click <a target="_blank" href="<?php echo SITEURL;?>/admin/index.php?do=blog&action=edit&id=<?php echo($row->id); ?>">here to edit</a></em>
 			</p>
 			<?php elseif($user->hasAdminAccess()):?>
-			<p class="active p0">
+			<p class="active p0" style="background: #eee;padding: 6px;margin-top: 24px;">
 				<em>Post is live. Click <a target="_blank" href="<?php echo SITEURL;?>/admin/index.php?do=blog&action=edit&id=<?php echo($row->id); ?>">here to edit</a></em>
 			</p>
 			<?php endif;?>
@@ -39,9 +39,23 @@
 		</section>
 		
 		<section class="wrapper container max-width blog-img">
+			
+			<?php if(sanitize($row->herovideo)):?>
+			<a class="blog-video-button" id="playVideo">
+				<i class="ico-youtube"></i>
+			</a>
+			<?php endif;?>
+			
 			<div class="placeholder" data-large="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo UPLOADURL;?>news_images/<?php echo ($row->image);?>&amp;w=1600&amp;h=900&amp;s=1&amp;c=t1">
 			  <img src="<?php echo SITEURL;?>/thumbmaker.php?src=<?php echo UPLOADURL;?>news_images/<?php echo ($row->image);?>&amp;w=32&amp;h=18&amp;s=1&amp;a=t1" class="img-small" alt='<?php echo $row->title;?>'>
 			</div>
+			
+			<?php if(sanitize($row->herovideo)):?>
+			<div class="bg-video">
+				<iframe id="video" src="https://www.youtube.com/embed/<?php echo $row->herovideo;?>" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<?php endif;?>
+			
 		</section>
 		
 		<section class="wrapper blog-body text-center container max-width narrow">
@@ -59,7 +73,7 @@
 			<form class="form-validetta auth-form comment-box" accept-charset="UTF-8" method="post" autocomplete="off">
 				<div class="row">
 					<div class="col-sm-12">
-						<h3 class="t0">Comment</h3>
+						<h3 class="t0">Comment <span>(earn 5 points)</span></h3>
 					</div>
 					<div class="col-sm-12 t12">
 						
@@ -309,6 +323,16 @@
 				}
 			});
 		});
+		
+		<?php if(isset($row->herovideo)):?>
+		/*Hero video play*/
+		$('#playVideo').on('click', function(ev) {
+			$('.bg-video').css('z-index', '1000');
+			$("#video")[0].src += "?autoplay=1";
+			$("#video")[0].src += "&autoplay=1";
+			ev.preventDefault();
+		});
+		<?php endif;?>
 	</script>
 
 </body>

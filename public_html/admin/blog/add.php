@@ -103,6 +103,13 @@ if (!defined("_VALID_PHP"))
 							</div>
 							
 							<div class="form-group clearfix">
+								<label for="author" class="col-sm-2 control-label form-label">Hero Video</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="herovideo" name="herovideo" placeholder="eg. LEKxm_VaXtc" value="" />
+								</div>
+							</div>
+							
+							<div class="form-group clearfix">
 								<label for="title" class="col-sm-2 control-label form-label">Blog Categories</label>
 								<div class="col-sm-10 fieldset-form mini">
 									<fieldset class="form-group field-checklist" style="min-height: 128px;">
