@@ -189,6 +189,8 @@ if (isset($_POST['processPointsPayment'])) {
 			'heatflag' => $totalrow->heatflag,
 			'status' => '1',
 			'points' => 0,
+			'shipping_class' => $totalrow->shipping_type,
+			'signature' => $totalrow->signature,
 			'earninvite' => 1
 		);
 

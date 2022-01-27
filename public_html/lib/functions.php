@@ -1184,4 +1184,15 @@ function session($var)
      }
     curl_close($ch);
     }
+    
+  function LoadSquareClients()
+  {
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/class_square_client.php");
+  }
+  function LoadBamboraClients()
+  {
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/lib/class_bambora_client.php");
+  }
+  
+  
 ?>

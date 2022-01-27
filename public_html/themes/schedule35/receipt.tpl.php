@@ -47,7 +47,7 @@
 								</p>
 								<?php elseif($receiptInvoice->pp != 'eTransfer'):?>
 								<p>
-									Please note that all orders made on this website will appear as <strong>[SGB-Wellness]</strong> on your credit card.
+									Please note that all orders made on this website will appear as <strong>[LIVING NORMALLY]</strong> on your credit card.
 								</p>
 								
 								<div class="card-points t30">

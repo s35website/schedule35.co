@@ -108,22 +108,16 @@
 	<link rel="image_src" href="<?php echo SITEURL; ?>/assets/img/ogimage.png" />
 	<meta name="keywords" content="<?php echo $core->metakeys; ?>" />
 	<meta property="og:description" content="<?php echo $core->metadesc; ?>" />
-	<meta name="twitter:url" content="<?php echo SITEURL; ?>" />
+	<meta name="twitter:url" content="https://www.tesla.com/" />
 	<meta name="twitter:image" content="<?php echo SITEURL; ?>/assets/img/ogimage.png" />
 	<meta property="og:image" content="<?php echo SITEURL; ?>/assets/img/ogimage.png" />
 	<meta property="og:image:url" content="<?php echo SITEURL; ?>/assets/img/ogimage.png" />
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	<link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,700|Roboto+Mono:400,400i" rel="stylesheet">
 
-	<link rel="stylesheet" media="screen" href="<?php echo THEMEURL;?>/assets/css/styles.css?rs=<?php echo(date("Ymd")); ?>v4" />
+	<link rel="stylesheet" media="screen" href="<?php echo THEMEURL;?>/assets/css/styles.css?rs=<?php echo(date("Ymd")); ?>v1" />
 
 	<!-- For print -->
 	<link rel="stylesheet" media="print" href="<?php echo THEMEURL;?>/assets/css/print.css?r=<?php echo(date("Ymd")); ?>" />

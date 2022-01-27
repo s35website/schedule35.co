@@ -7,9 +7,7 @@
 
 <body class="<?php echo (($notification == 1) ? 'has-notification' : ''); ?>">
 
-	<div id="flashes">
-		<?php echo(isset($_SESSION['registererror']) ? $_SESSION['registererror'] : ''); ?>
-	</div>
+	
 
 	<?php require('components/navbar.tpl.php'); ?>
 
@@ -21,6 +19,10 @@
 			<div class="container max-width">
 				<div class="row">
 					<div class="col-sm-12">
+						
+						<div id="flashes" class="p30">
+							<?php echo(isset($_SESSION['registererror']) ? $_SESSION['registererror'] : ''); ?>
+						</div>
 						
 						<form action="<?php echo SITEURL; ?>/ajax/user.php" class="login-wrapper form-validetta auth-form" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
 							

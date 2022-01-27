@@ -143,8 +143,7 @@
 							</div>
 							<div class="form view grid">
 
-								<p>We currently ship to the following states: California, Oregon, Washington, and Colorado. </p>
-								<p>As laws around psychedelics ease up, we’ll be working hard to get our products and services to the rest of the U.S. Sign up to our mailing list to get notified of when Schedule35 comes to your State. </p>
+								<p>We ship to all 50 states. </p>
 								<p><strong>We use USPS to get your orders to your doorstep. Due to the ongoing COVID-19 pandemic, you may experience some shipping delays. In the meantime, use the provided tracking number to check on the status of your package.</strong></p>
 
 							</div>
@@ -290,7 +289,7 @@
 							</div>
 							<div class="form view grid">
 
-								<p>We currently ship to all of CA, CO, OR and WA via their APO, FPO &amp; DPO addresses.</p>
+								<p>We ship to all 50 states. </p>
 								<p>At this time, we don't ship internationally, but we hope to sometime in the near future. </p>
 
 							</div>

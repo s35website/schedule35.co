@@ -240,6 +240,8 @@ if (isset($_POST['processStripePayment'])) {
 					'status' => '1',
 					'points' => $totalrow->points,
 					'payout' => $totalrow->payout,
+					'shipping_class' => $totalrow->shipping_type,
+					'signature' => $totalrow->signature,
 					'earninvite' => 1
 				);
 				$db->insert(Content::inTable, $invdata);

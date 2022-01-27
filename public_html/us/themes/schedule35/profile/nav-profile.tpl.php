@@ -14,9 +14,9 @@
 	<a href="<?php echo SITEURL; ?>/profile" class="subnav-link<?php if(in_array($p, $profile_arr)):?> active<?php endif;?>">
 		<span>Your Account</span>
 	</a>
-	<a href="<?php echo SITEURL; ?>/profile?p=referrals" class="subnav-link<?php if($p === 'referrals'):?> active<?php endif;?>">
+	<!--<a href="<?php echo SITEURL; ?>/profile?p=referrals" class="subnav-link<?php if($p === 'referrals'):?> active<?php endif;?>">
 		<span>Invite a Friend</span>
-	</a>
+	</a>-->
 	<a href="<?php echo SITEURL; ?>/logout.php" class="subnav-link">
 		<span>Sign Out</span>
 	</a>

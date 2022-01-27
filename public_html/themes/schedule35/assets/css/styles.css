@@ -3265,7 +3265,7 @@ ul.list li {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	text-align: right;
+	text-align: center;
 }
 .header ul.menu li.menu-item {
 	display: inline-block;
@@ -3393,7 +3393,7 @@ ul.list li {
 #header_points a {
 	display: block;
 	padding-left: 0;
-	padding-right: 15px;
+	padding-right: 0;
 }
 #header_avatar {
 	
@@ -3538,7 +3538,7 @@ ul.list li {
 
 @media (max-width: 1024px) {
   .header ul.menu li.menu-item a {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -3602,7 +3602,7 @@ ul.list li {
 	.header ul.menu {
 		position: relative;
 		display: block;
-		padding: 0px 40px 63px;
+		padding: 0px 40px 72px;
 		list-style: none;
 		z-index: 1;
 		position: absolute;
@@ -3690,7 +3690,7 @@ ul.list li {
 		background-position: 7px center;
 		background-size: 30px;
 		background-repeat: no-repeat;
-		background-image: url('../img/icons/ico-buudapay3x.png');
+		background-image: url('../img/about/ico_wallet2-white.png');
 	}
 	
 	.header ul.menu li.menu-item#header_points {
@@ -3700,13 +3700,13 @@ ul.list li {
 		transition: transform 0.1s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.15s cubic-bezier(0.4, 0.01, 0.165, 0.99), -webkit-transform 0.1s cubic-bezier(0.4, 0.01, 0.165, 0.99);
 		-webkit-transition-delay: 0s;
 		transition-delay: 0s;
-		position: fixed;
 		bottom: 0;
 		left: 0;
 		border-bottom: 0;
 		padding: 0px 40px;
 		background: #020202;
 		border-top: 1px solid #333;
+		z-index: -1;
 	}
 	.header ul.menu li.menu-item a {
 		display: block;
@@ -3854,6 +3854,7 @@ ul.list li {
 		position: fixed;
 		bottom: 0;
 		left: 0;
+		z-index: 12;
 	}
 }
 
@@ -4383,7 +4384,7 @@ ul.list li {
 	text-decoration: underline;
 }
 .notification-bar.verify-msg {
-	background: #556cd6;
+	background: #e45c49;
 }
 
 .notification-bar-parent {
@@ -5358,7 +5359,6 @@ body[class*=" jBox-blockScroll-"] {
 /* 2.6 - Flash notifications */
 
 #flashes {
-	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -9528,6 +9528,48 @@ table.table-dosage .gummy-icon {
 	padding-bottom: 58%;
 }
 
+
+.blog-img .blog-video-button {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	background: rgba(0, 0, 0, .7);
+	opacity: 0;
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	transition: all 0.4s;
+	cursor: pointer;
+}
+.blog-img .blog-video-button:hover {
+	opacity: 1;
+}
+
+.blog-img .blog-video-button i {
+	position: absolute;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	font-size: 65px;
+}
+.blog-img .bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+.blog-img .bg-video #video {
+	width: 100%;
+	height: 100%;
+}
+
+
 .blog-meta {
 	color: #999;
 	font-weight: 500;
@@ -9578,6 +9620,25 @@ table.table-dosage .gummy-icon {
 	margin-top: 48px;
 }
 
+#nonce-form iframe {
+    border: 1px solid #CFCFCF;;
+    height: 48px;
+    border-radius:5px;
+}
+#nonce-form iframe:placeholder {
+    color:#ccc;
+}
+#nonce-form button{
+    background-color: #e45c49 !important;
+    border-color: #ccc !important;
+    color: #fff !important;
+    cursor: default !important;
+    font-size: 19px;
+    padding: 18px 50px;
+    border-radius: 40px;
+    border:none;
+    cursor: pointer!important;
+}
 
 @media (max-width: 767px) {
 	.article h1 {

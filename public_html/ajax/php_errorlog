@@ -5,3 +5,10 @@ Stack trace:
 #2 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/Headers/MailboxHeader.php(65): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
 #3 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/SimpleHeaderFactory.php(60): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
 #4 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/SimpleH in /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/Headers/MailboxHeader.php on line 352
+[07-Dec-2021 20:18:15 America/Toronto] PHP Fatal error:  Uncaught Swift_RfcComplianceException: Address in mailbox given [Email is kryptonkalel28@gmail.com] does not comply with RFC 2822, 3.6.2. in /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/Headers/MailboxHeader.php:352
+Stack trace:
+#0 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/Headers/MailboxHeader.php(264): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('Email is krypto...')
+#1 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/Headers/MailboxHeader.php(108): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/Headers/MailboxHeader.php(65): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/SimpleHeaderFactory.php(60): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mim in /home/customer/www/schedule35.com/public_html/lib/swift/classes/Swift/Mime/Headers/MailboxHeader.php on line 352

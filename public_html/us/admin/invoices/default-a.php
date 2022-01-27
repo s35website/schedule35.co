@@ -133,8 +133,7 @@
 						<label for="status">Status</label>
 						<select class="selectpicker" name="status" style="width: 100%;">
 							<option value="">All Invoices</option>
-							<?php foreach ($invoiceStatuses as $key=>$value) { $activeClass = ''; if ($status === strval($key)) { $activeClass = 'selected'; } print '
-							<option value="' . $key . '" ' . $activeClass . '>' . $value . '</option>'; } ?>
+							<?php foreach ($invoiceStatuses as $key=>$value) { $activeClass = ''; if ($status === strval($key)) { $activeClass = 'selected'; } print '<option value="' . $key . '" ' . $activeClass . '>' . $value . '</option>'; } ?>
 						</select>
 					</div>
 					

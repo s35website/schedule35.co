@@ -278,6 +278,15 @@
 								</div>
 							</label>
 							
+							
+							
+							<div class="form-group t48" style="padding: 30px; background-color: #fcfcfc;border: 1px dashed #ccc;">
+								<input type="checkbox" id="legal" name="legal" data-validetta="required"><label for="legal"><span>I'm aware of the laws regarding purchase and possession of psilocybin in my state.</span></label>
+							</div>
+							
+							
+							
+							
 							<?php if ($content->getMeltable() == 1): ?>
 							
 								<div class="heat-warning-box">
@@ -328,6 +337,7 @@
 										<button id="btnCloseModal" class="btn disabled">Cancel</button><button id="btnContinue" class="btn primary">I understand</button>
 									</div>
 								</div>
+								
 								
 								<input type="hidden" name="heatwarning_opt" id="heatwarning_opt" value="0" />
 								

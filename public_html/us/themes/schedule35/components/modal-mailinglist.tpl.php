@@ -3,7 +3,7 @@
 <!-- Show notification settings update -->
 	<div id="modal-notificatons-update" class="modal-box" style="display: none;">
 		<div class="padding">
-			<img src="<?php echo THEMEURL;?>/assets/img/icons/ico4-mail.png" style="width: 142px; height: 138px;">
+			<img src="<?php echo THEMEURL;?>/assets/img/icons/ico4-mail2.png" style="width: 142px; height: 138px;">
 			<h3 class="text-center t30 p18">Deals and news delivered to your inbox</h3>
 			
 			<p class="text-center big p48">

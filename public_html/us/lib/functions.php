@@ -1031,12 +1031,20 @@ function session($var)
   
   function exportShippingtoShipStation($txID, $item, $core) {
   
-  	$q = "select invoices.id as id, invoices.created, invoices.shipping, invoices.name, invoices.address, invoices.address2, invoices.city, invoices.state, invoices.zip, invoices.phone, invoices.heatflag from invoices where invoices.invid='". $txID . "'"; 
+  	$q = "select invoices.id as id, invoices.created, invoices.shipping, invoices.name, invoices.address, invoices.address2, invoices.city, invoices.state, invoices.zip, invoices.phone, invoices.heatflag, invoices.shipping_class, invoices.signature from invoices where invoices.invid='". $txID . "'"; 
       $row = Registry::get("Database")->first($q);
+      
+      $serviceConfirmation = 'none';
       $serviceType = 'usps_priority_mail';
       
-      if($row->shipping >= $core->shipping_express){
+      // Express
+      if($row->shipping_class == 1){
         $serviceType = 'usps_priority_mail_express';
+      }
+      
+      // Signature required
+      if($row->signature == 1){
+         $serviceConfirmation = 'signature';
       }
       
       $receiptProducts = $item->getReceiptProducts($txID);
@@ -1133,7 +1141,7 @@ function session($var)
             'carrierCode' => 'stamps_com',
             'serviceCode' => $serviceType,
             'packageCode' => 'package',
-            'confirmation' => 'none',
+            'confirmation' => $serviceConfirmation,
             'weight' => array(
                 'value' => $weight,
                 'units' => 'grams'

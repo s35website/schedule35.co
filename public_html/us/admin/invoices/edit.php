@@ -300,23 +300,46 @@
 										<div class="col-sm-9">
 											<p class="form-control-static">
 												
-												<?php
-												if ($receiptInvoice->pp == 'Points') {
-													echo("<span class='clr_standard'>Standard (" . number_format($receiptInvoice->shipping, 0) . "pts)</span>");
-												}
-												else {
-													if ($receiptInvoice->shipping >= $core->shipping_express) {
-													echo("<span class='clr_express'>Express ($" . $receiptInvoice->shipping . ")</span>");
-													}
-													elseif ($receiptInvoice->shipping < $core->shipping_express) {
-														echo("<span class='clr_standard'>Standard ($" . $receiptInvoice->shipping . ")</span>");
-													}
-													else {
-														echo("Undefined");
-													}
-												}
+												<?php 
 												
-												?>
+													if ($receiptInvoice->shipping_class == 0 || !$receiptInvoice->shipping_class) {
+														$shipping_type = Standard;
+													}elseif ($receiptInvoice->shipping_class == 1) {
+														$shipping_type = Express;
+													}
+													
+													if ($receiptInvoice->pp == 'Points') {
+														echo("<span class='clr_standard'>". $shipping_type . " (" . number_format($receiptInvoice->shipping, 0) . "pts)</span>");
+													}else {
+														echo("<span class='clr_express'>". $shipping_type . " ($" . $receiptInvoice->shipping . ")</span>");
+													}
+												
+												 ?>
+												
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- Start Row: Shipping Type -->
+							<div class="row">
+								<div class="col-sm-10 col-xs-offset-1 col-sm-offset-1">
+									<div class="form-group">
+										<label class="col-sm-3 control-label form-label">Confirmation:</label>
+										<div class="col-sm-9">
+											<p class="form-control-static">
+												
+												<?php 
+												
+													if ($receiptInvoice->signature == 0 || !$receiptInvoice->shipping_class) {
+														echo('None');
+													}elseif ($receiptInvoice->shipping_class == 1) {
+														echo('Signature');
+													}
+												
+												 ?>
+												
 											</p>
 										</div>
 									</div>

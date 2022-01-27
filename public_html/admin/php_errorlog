@@ -82,3 +82,16 @@ Stack trace:
 #3 {main}
   thrown in /home/customer/www/schedule35.com/public_html/lib/class_user.php on line 456
 [29-Jun-2021 17:34:42 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[09-Sep-2021 14:22:54 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[10-Sep-2021 10:13:18 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[13-Sep-2021 12:11:15 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[21-Sep-2021 17:14:37 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[22-Sep-2021 16:55:36 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[01-Oct-2021 16:15:34 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[12-Oct-2021 17:20:18 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[09-Dec-2021 14:26:39 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[14-Dec-2021 15:21:29 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[14-Dec-2021 15:22:01 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[18-Jan-2022 12:19:13 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[18-Jan-2022 12:19:31 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095
+[18-Jan-2022 12:46:36 America/Toronto] PHP Deprecated:  implode(): Passing glue string after array is deprecated. Swap the parameters in /home/customer/www/schedule35.com/public_html/admin/controller.php on line 1095

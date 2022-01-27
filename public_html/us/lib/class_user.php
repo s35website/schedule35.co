@@ -1281,7 +1281,7 @@ class Users
 				$template = file_get_contents('../templates_email/email_welcome.html');
 				$subject = 'Welcome to ' . Registry::get("Core")->company;
 			}
-			$link = Registry::get("Core")->site_url . "/verify?k=" . $key;
+			$link = Registry::get("Core")->site_url . Registry::get("Core")->site_dir . "/verify?k=" . $key;
 			$template = str_replace(array(
 				'[SITEURL]',
 				'[SITE_NAME]',
@@ -1413,7 +1413,7 @@ class Users
 
 			require_once (BASEPATH . "lib/class_mailer.php");
 
-			$link = Registry::get("Core")->site_url . "/reset-password?k=" . $key;
+			$link = Registry::get("Core")->site_url . Registry::get("Core")->site_dir . "/reset-password?k=" . $key;
 
 			$template = file_get_contents('../templates_email/email_resetpassword.html');
 			$template = str_replace(array(

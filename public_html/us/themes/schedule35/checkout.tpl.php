@@ -195,8 +195,8 @@
 									<div class="col-6 col-md-4">
 										
 										<label for="shipping_state">State</label>
-										<select id="shipping_state" name="state" data-validetta="required">
-											<option value="" disabled selected>State</option>
+										<select id="shipping_state" name="state" data-validetta="required, minLength[2]">
+											<option value="" disabled></option>
 											
 											<?php $provRow = $content->getStates(); ?>
 											<?php foreach ($provRow as $prrow): ?>
@@ -232,10 +232,8 @@
 
 							<h5 class="t60">Shipping Options</h5>
 							<?php
-								
 								$shipping_standard_dis = $content->calculateStandardShipping($shipping_state);
 								$shipping_express_dis = $content->calculateExpressShipping($shipping_state);
-								
 								
 								// Check if shipping is free
 								if (($cart->originalprice - $cart->coupon) < $core->shipping_free_flag ) {
@@ -249,13 +247,13 @@
 
 							<label class="radio-wrapper form-group" for="shipping_economy">
 								<span class="radio-option-title">
-									Expedited Shipping -
+									USPS First Class -
 									<span id="shipping_economy_dis">
 									<?php echo $core->formatMoney($shipping_standard_dis, 2); ?>
 									</span>
 								</span>
 								<span class="radio-option-body">
-									Estimated delivery <?php echo date('M j', strtotime("+4 weekdays")); ?> - <?php echo date('M j', strtotime("+10 weekdays")); ?>
+									Estimated delivery <?php echo date('M j', strtotime("+2 weekdays")); ?> - <?php echo date('M j', strtotime("+9 weekdays")); ?>
 								</span>
 								<div class="radio-button">
 									<input class="radio-option-input radio-option-shipping" type="radio" name="shipping_class" id="shipping_economy" value="0" <?php echo($cart->shipping_type != 1 ? 'checked': '');?> data-validetta="required">
@@ -277,6 +275,18 @@
 									<label for="shipping_two-day"></label>
 								</div>
 							</label>
+							
+							<label class="radio-wrapper form-group" style="display: none;">
+								<input value="1" type="checkbox" id="signature" name="signature"><label for="signature"><span>Require signature upon delivery.</span></label>
+							</label>
+							
+							
+							<div class="form-group t48 p30" style="padding: 30px; background-color: #fcfcfc;border: 1px dashed #555a74;">
+								<input type="checkbox" id="legal" name="legal" data-validetta="required"><label for="legal"><span>I'm aware of the laws regarding purchase and possession of psilocybin in my state.</span></label>
+							</div>
+							
+							
+							
 							
 							<?php if ($content->getMeltable() == 1): ?>
 							
@@ -496,6 +506,8 @@
 		function updateShippingCost() {
 			var shippingType = $("input[name='shipping_class']:checked").val();
 			var shipping_province_cost = $("#shipping_state").find('option:selected').data('cost');
+			var signature = $("input[name='signature']:checked").val();
+			console.log('signature: ' + signature);
 			
 			console.log(shipping_province_cost);
 			
@@ -514,6 +526,7 @@
 					'state': $("#shipping_state").val(),
 					'zip': $("#shipping_zip").val(),
 					'shipping_telephone': $("#shipping_telephone").val(),
+					'signature': signature,
 					'discount_code': $("#discount_code").val()
 				},
 				beforeSend: function() {
@@ -545,7 +558,10 @@
 		 }
 		 
 		 
-		 $(".radio-option-shipping").click(function() {
+//		 $(".radio-option-shipping").click(function() {
+//			updateShippingCost();
+//		 });
+		 $(".radio-wrapper").click(function() {
 			updateShippingCost();
 		 });
 		
@@ -562,11 +578,12 @@
 		
 		/* Checkout */
 		$('#form-validetta-checkout').validetta({
+			
 			showErrorMessages : false,
 			errorClass : '_error',
 			onValid : function( event ) {
 				event.preventDefault(); // Will prevent the submission of the form
-		
+				var shippingType = $("input[name='shipping_class']:checked").val();
 				$.ajax({
 					type: "post",
 					dataType: 'json',
@@ -582,6 +599,7 @@
 						'zip': $("#shipping_zip").val(),
 						'discount_code': $("#discount_code").val(),
 						'shipping_telephone': $("#shipping_telephone").val(),
+						'shipping_class': shippingType,
 						'heatwarning_opt': $("#heatwarning_opt").val()
 					},
 					beforeSend: function() {

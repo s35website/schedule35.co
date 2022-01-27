@@ -182,7 +182,7 @@
 		$udata['hash'] = $key;
 		$db->update(Users::uTable, $udata, "id='" . Registry::get("Users")->uid . "'");
 		
-		$link = Registry::get("Core")->site_url . "/verify?k=" . $key;
+		$link = Registry::get("Core")->site_url . Registry::get("Core")->site_dir . "/verify?k=" . $key;
 		
 		require_once(BASEPATH . "lib/class_mailer.php");
 		$mailer = Mailer::sendMail();

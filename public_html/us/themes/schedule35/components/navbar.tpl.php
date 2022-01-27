@@ -72,22 +72,6 @@
 
 
 
-
-
-<!-- notification bar -->
-<?php if($notification == 1):?>
-<div class="notification-bar">
-	<div class="notification-bar-parent">
-		<div class="notification-bar-child">
-			Currently shipping to CA, CO, OR and WA. <a href="<?php echo SITEURL;?>/faqs#wheredoweship">Learn more.</a>
-		</div>
-	</div>
-</div>
-<?php endif;?>
-
-
-
-
 <!-- header -->
 <?php
 	if (isset($pagenameModifier)) {
@@ -157,7 +141,7 @@
 							
 							<li class="nav-item<?php if ($pagename == 'Account Details'): ?> active<?php endif; ?>"><a href="<?php echo SITEURL;?>/profile?p=details">Account Details</a></li>
 							
-							<li class="nav-item<?php if ($pagename == 'Invite a Friend'): ?> active<?php endif; ?>"><a href="<?php echo SITEURL;?>/profile?p=referrals">Invite a Friend</a></li>
+							<!--<li class="nav-item<?php if ($pagename == 'Invite a Friend'): ?> active<?php endif; ?>"><a href="<?php echo SITEURL;?>/profile?p=referrals">Invite a Friend</a></li>-->
 							
 							
 							<li class="nav-item"><a href="<?php echo SITEURL;?>/logout.php">Sign Out</a></li>
@@ -202,11 +186,16 @@
 				<li class="menu-item<?php if($pagename == 'Blog' || $pagenameModifier == 'Blog'):?> active<?php endif;?>"><a href="<?php echo SITEURL;?>/blog">Blog</a></li>
 				
 				<?php if(!$user->logged_in):?>
-				<li class="menu-item<?php if($pagename == 'Register'):?> active<?php endif;?>"><a href="<?php echo SITEURL;?>/register">Sign Up</a></li>
-				<li class="menu-item<?php if($pagename == 'Login'):?> active<?php endif;?>"><a href="<?php echo SITEURL;?>/login">Log In</a></li>
+				<li class="menu-item menu-right<?php if($pagename == 'Register'):?> active<?php endif;?>"><a href="<?php echo SITEURL;?>/register">Sign Up</a></li>
+				<li class="menu-item menu-right<?php if($pagename == 'Login'):?> active<?php endif;?>"><a href="<?php echo SITEURL;?>/login">Log In</a></li>
 				<?php elseif($user->hasAdminAccess()):?>
 				<li class="menu-item desktop-hide"><a href="<?php echo SITEURL;?>/admin">Admin</a></li>
 				<?php endif;?>
+				
+				<?php if($user->logged_in):?>
+				<li id="header_points" class="menu-item menu-right"><a href="<?php echo SITEURL;?>/profile?p=points"><?php echo number_format($urow->points_current, 0);?> pts</a></li>
+				<?php endif;?>
+				
 				<?php if($user->is_Ambassador()):?>
 				<li class="menu-item desktop-hide"><a href="<?php echo SITEURL;?>/ambassador">Ambassador Program</a></li>
 				<?php endif;?>
@@ -234,3 +223,30 @@
 	</div>
 </header>
 
+
+
+<!-- notification bar -->
+<?php if($notification == 1):?>
+<!--<div class="notification-bar">
+	<div class="notification-bar-parent">
+		<div class="notification-bar-child">
+			Currently shipping to 50 states. <a href="<?php echo SITEURL;?>/faqs#wheredoweship">Learn more.</a>
+		</div>
+	</div>
+</div>-->
+<?php endif;?>
+
+
+<!-- notification bar -->
+
+<?php if($user->logged_in):?>
+<?php if($urow->active == "n"):?>
+<div class="notification-bar verify-msg">
+	<div class="notification-bar-parent">
+		<div class="notification-bar-child">
+			To enable all features please verify your email. <a href="<?php echo SITEURL;?>/profile?p=unverified">Didn't receive an email?</a>
+		</div>
+	</div>
+</div>
+<?php endif;?>
+<?php endif;?>

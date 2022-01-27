@@ -123,7 +123,7 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,700|Roboto+Mono:400,400i" rel="stylesheet">
 
-	<link rel="stylesheet" media="screen" href="<?php echo THEMEURL;?>/assets/css/styles.css?rs=<?php echo(date("Ymd")); ?>v6" />
+	<link rel="stylesheet" media="screen" href="<?php echo THEMEURL;?>/assets/css/styles.css?rs=<?php echo(date("Ymd")); ?>v2" />
 
 	<!-- For print -->
 	<link rel="stylesheet" media="print" href="<?php echo THEMEURL;?>/assets/css/print.css?r=<?php echo(date("Ymd")); ?>" />

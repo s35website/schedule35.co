@@ -7,10 +7,6 @@
 
 <body class="<?php echo (($notification == 1) ? 'has-notification' : ''); ?>">
 
-	<div id="flashes">
-		<?php echo(isset($_SESSION['registererror']) ? $_SESSION['registererror'] : ''); ?>
-	</div>
-
 	<?php require('components/navbar.tpl.php'); ?>
 
 	<div class="main">
@@ -19,9 +15,17 @@
 			<div class="container max-width">
 				<div class="row">
 					<div class="col-sm-12">
+						
 						<form class="login-wrapper form-validetta auth-form" accept-charset="UTF-8" method="post" autocomplete="off">
+							
 							<div class="login-padding">
+								
 								<h2 class="t0">Login</h2>
+								
+								<div id="flashes" class="p30">
+									<?php echo(isset($_SESSION['registererror']) ? $_SESSION['registererror'] : ''); ?>
+								</div>
+								
 								<div class="form-group">
 									<div class="row">
 										<div class="col-12">

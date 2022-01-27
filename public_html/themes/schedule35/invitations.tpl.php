@@ -26,7 +26,7 @@
 					<p><strong>There are three (3) ways to get an invite code:</strong></p>
 					
 					<ol class="list p30">
-						<li>Send us a DM on Instagram <a href="https://www.instagram.com/<?php echo $core->social_instagram;?>" target="_blank">@<?php echo $core->social_instagram;?></a>. Make sure to accept our follow request as soon as possible!</li>
+						<li>Send us a DM on Instagram <a href="https://www.instagram.com/<?php echo $core->social_instagram;?>" target="_blank">@<?php echo $core->social_instagram;?></a>.</li>
 						<li>Email us at <a href="mailto:<?php echo $core->site_email;?>"><?php echo $core->site_email;?></a> with the subject line "Need invite code". To help us verify your identity make sure to <strong>include your drivers license, or valid government ID</strong>.</li>
 						<li>If you have a friend who's already a member, you can use their <a href="<?php echo SITEURL;?>//profile?p=referrals">unique invite code</a> to sign up.</li>
 						<li>Sign up for our <a target="_blank" href="https://schedule35.us19.list-manage.com/subscribe/post?u=db202d6a7b357e6f3fe124fec&amp;id=1a5ba00035">invitation mailing list</a>. We send new invite codes every week.</li>

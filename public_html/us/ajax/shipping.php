@@ -15,6 +15,7 @@
 
 		$shipping_cost = 0;
 		$shipping_type = intval($_POST['shipping_type']);
+		$signature = intval($_POST['signature']);
 		$state = sanitize($_POST['state']);
 		
 		
@@ -32,6 +33,7 @@
 			'tax' => $tax,
 			'shipping' => $shipping_cost,
 			'shipping_type' => $shipping_type,
+			'signature' => $signature,
 			'name' => html_entity_decode(sanitize($_POST['name']), ENT_QUOTES),
 			'country' => sanitize($_POST['country']),
 			'address' => html_entity_decode(sanitize($_POST['address']), ENT_QUOTES),

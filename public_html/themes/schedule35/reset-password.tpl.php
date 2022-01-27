@@ -7,9 +7,7 @@
 
 <body class="<?php echo (($notification == 1) ? 'has-notification' : ''); ?>">
 	
-	<div id="flashes">
-		<?php echo(isset($_SESSION['resetstatus']) ? $_SESSION['resetstatus'] : ''); ?>
-	</div>
+	
 	
 	<?php require('components/navbar.tpl.php'); ?>
 	
@@ -23,6 +21,11 @@
 						<form id="forgot_password" class="auth-form form-validetta login-wrapper password-wrapper" action="<?php echo SITEURL; ?>/ajax/user.php" accept-charset="UTF-8" method="post">
 							<div class="login-padding">
 								<h2 class="t0">Update Password</h2>
+								
+								<div id="flashes" class="p30">
+									<?php echo(isset($_SESSION['resetstatus']) ? $_SESSION['resetstatus'] : ''); ?>
+								</div>
+								
 								<div class="form-group p30">
 									<input id="new_password" type="password" autocomplete="off" name="new_password" placeholder="New Password" data-validetta="required,minLength[2]" />
 								</div>
